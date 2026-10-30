@@ -11,7 +11,7 @@ No UDFs, one line of code, and it works with Databricks.
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![PySpark](https://img.shields.io/badge/pyspark-3.5%2B-E25A1C?logo=apachespark&logoColor=white)
 ![Databricks](https://img.shields.io/badge/Databricks-DBR%2014%2B-FF3621?logo=databricks&logoColor=white)
-![AES-256-GCM](https://img.shields.io/badge/cipher-AES--256--GCM-success)
+![AES-256-GCM](https://img.shields.io/static/v1?label=cipher&message=AES-256-GCM&color=2ea44f)
 
 </div>
 
