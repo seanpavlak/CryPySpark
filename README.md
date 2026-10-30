@@ -7,7 +7,7 @@
 Structs, arrays, maps, decimals, timestamps, binary, nested as deep as you like.<br>
 No UDFs, one line of code, and it works with Databricks.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/seanpavlak/CryPySpark/blob/main/LICENSE)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![PySpark](https://img.shields.io/badge/pyspark-3.5%2B-E25A1C?logo=apachespark&logoColor=white)
 ![Databricks](https://img.shields.io/badge/Databricks-DBR%2014%2B-FF3621?logo=databricks&logoColor=white)
@@ -380,4 +380,4 @@ The test suite round-trips a schema containing every supported type, including e
 
 ## 📄 License
 
-[MIT](LICENSE) © 2025 Sean Pavlak
+[MIT](https://github.com/seanpavlak/CryPySpark/blob/main/LICENSE) © 2025 Sean Pavlak
