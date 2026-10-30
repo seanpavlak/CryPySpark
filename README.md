@@ -226,13 +226,23 @@ cdb.encrypted_columns("main.crm.customers")       # {"ssn": "s", "address": 'r{"
 
 ## 🔬 How it works
 
-```mermaid
-flowchart LR
-    A["any column<br/><code>struct&lt;zip:int, ts:timestamp&gt;</code>"] --> B["JSON-safe rewrite<br/>(native expressions)"]
-    B --> C["envelope<br/><code>{&quot;t&quot;:&quot;r{&quot;zip&quot;:i,&quot;ts&quot;:T}&quot;, &quot;v&quot;:{...}}</code>"]
-    C --> D["AES-256-GCM<br/>random IV per cell"]
-    D --> E["BINARY cell"]
-    E -. decrypt .-> F["read tag → rebuild exact type"]
+```text
+  encrypt
+  ───────
+  struct<zip:int, ts:timestamp>               any column, any type
+        │
+        ▼  JSON-safe rewrite                  native Spark expressions
+  {"zip": 12345, "ts": 1709251199123456}
+        │
+        ▼  wrap with type tag
+  {"t": "r{\"zip\":i,\"ts\":T}", "v": {...}}
+        │
+        ▼  AES-256-GCM                        fresh random IV per cell
+  0x8f3a91c4…                                 BINARY cell
+
+  decrypt
+  ───────
+  0x8f3a91c4…  ──►  AES-256-GCM  ──►  read type tag  ──►  rebuild exact type
 ```
 
 1. **JSON-safe rewrite.** Types JSON would mangle are rewritten losslessly with native Spark functions:
